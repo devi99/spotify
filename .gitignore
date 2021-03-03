@@ -1,0 +1,4 @@
+node_modules/
+# server/src/.env
+server/dist/
+webapp/dist/
