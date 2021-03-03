@@ -2,7 +2,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
-const ENV = process.argv.find((arg) => arg.includes('production')) ? 'production' : process.argv.find((arg) => arg.includes('test')) ? 'test' : 'dev';
+const ENV = process.argv.find((arg) => arg.includes('prod')) ? 'prod' : process.argv.find((arg) => arg.includes('test')) ? 'test' : 'dev';
 
 module.exports = {
   target: 'web',
