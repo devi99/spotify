@@ -1,4 +1,7 @@
 node_modules/
-# server/src/.env
+server/src/.env
+webapp/src/config/.env-dev
+webapp/src/config/.env-test
+webapp/src/config/.env-prod
 server/dist/
 webapp/dist/
