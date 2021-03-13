@@ -147,4 +147,4 @@ app.get('*', (req, res) => {
     res.sendFile(HTML_FILE)
 });
 
-app.listen(8888, () => console.log('listening'))
+app.listen(8888, () => console.log('listening  on port 8888'))
