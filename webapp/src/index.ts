@@ -128,10 +128,12 @@ import IndexedDBCtrl, { IPlaylist } from '../src/services/IndexedDB';
                     await spotifyDb.init();
                     const playlistsCurrent = await spotifyDb.getTrackValue(currentlyPlayingTrackId);
                     const plMemberOf: IPlaylist[] = [];
-                    playlistsCurrent.forEach(async element => {
+
+                    playlistsCurrent?.forEach(async element => {
                       const plValue = await spotifyDb.getPlaylistValue(element.playlistId);
                       plMemberOf.push(plValue);
                     });
+
                     const playlistsAll: Array<IPlaylist> = await spotifyDb.getAllPlaylists();
                     const plContainer = document.getElementById('playlists') as HTMLElement;
 
@@ -166,8 +168,12 @@ import IndexedDBCtrl, { IPlaylist } from '../src/services/IndexedDB';
                                     const res = await spotifyApi.addTracksToPlaylist(playlistId, currentlyPlayingTrackUri.uris);
                                     if(res.snapshot_id){
                                       //get the track from the idb
-                                      TrackplayLists.push({"playlistId" : playlistId, "playlistLabel" : playlistLabel});
-                                      spotifyDb.setTrackValue(currentlyPlayingTrackId, TrackplayLists )
+                                      if(!TrackplayLists) {
+                                        spotifyDb.setTrackValue(currentlyPlayingTrackId, [{'playlistId' : playlistId, 'playlistLabel' : playlistLabel}] )
+                                      } else {
+                                        spotifyDb.setTrackValue(currentlyPlayingTrackId, TrackplayLists );
+                                      }
+                                      
                                     }
                                     //console.debug(res);
                                 }
