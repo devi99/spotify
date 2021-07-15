@@ -147,4 +147,5 @@ app.get('*', (req, res) => {
     res.sendFile(HTML_FILE)
 });
 
-app.listen(8888, () => console.log('listening  on port 8888'))
+const PORT = process.env.PORT || 8888
+app.listen(PORT, () => console.log(`App listening to ${PORT}....`))

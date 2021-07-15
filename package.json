@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./server/dist",
-    "build:server": "npm run clean && tsc",
+    "build:server": "npm run clean",
     "build:dev": "webpack --config ./webapp/src/config/webpack.config.ts --env NODE_ENV=dev",
     "build:prod": "webpack --config ./webapp/src/config/webpack.config.ts --env NODE_ENV=prod",
-    "start": "npm run build:server && node server/dist/index.js",
+    "postinstall": "tsc",
+    "start": "npm run build:prod && node server/dist/index.js",
+    "startLocal": "npm run build:server && node server/dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
