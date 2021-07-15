@@ -7,6 +7,7 @@ const ENV = process.argv.find((arg) => arg.includes('production')) ? 'production
 module.exports = {
   target: 'web',
   mode: 'development',
+  devtool: 'eval-source-map',
   entry: './webapp/src/index.ts',
   module: {
     rules: [

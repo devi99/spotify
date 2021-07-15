@@ -5,3 +5,4 @@ webapp/src/config/.env-test
 webapp/src/config/.env-prod
 server/dist/
 webapp/dist/
+.env

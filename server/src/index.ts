@@ -5,7 +5,11 @@ import querystring from 'querystring';
 import request from 'request';
 import cookieParser from 'cookie-parser';
 
-dotenv.config({ path: __dirname+'/.env' });
+console.log('start running');
+//dotenv.config({ path: __dirname + '/.env' });
+dotenv.config();
+// const result = dotenv.config();
+// console.log(result);
 
 global.spotConfig = 'maybe keep accesstokens persistent';
 
